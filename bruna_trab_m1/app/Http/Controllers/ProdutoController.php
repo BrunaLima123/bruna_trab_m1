@@ -42,7 +42,7 @@ class ProdutoController extends Controller
             'tipo'      =>      'required|max:35',
             'modelo'    =>      'required|max:35',
             'marca'      =>      'required|max:35',
-            'PrecoVenda'    =>      'required|max:35',
+            'precoVenda'    =>      'required|max:35',
             'cor'      =>      'required|max:35',
             'peso'    =>      'required|max:35',
             'descricao'      =>      'required|max:35'
@@ -80,8 +80,7 @@ class ProdutoController extends Controller
     {
         //
         $produto = Produto::findOrFail($id);
-        // retornando a tela de edição com o
-        // objeto recuperado
+       
         return view('produtos.edit', compact('produto'));
     }
 
@@ -99,14 +98,14 @@ class ProdutoController extends Controller
             'tipo'      =>      'required|max:35',
             'modelo'    =>      'required|max:35',
             'marca'      =>      'required|max:35',
-            'PrecoVenda'    =>      'required|max:35',
+            'precoVenda'    =>      'required|max:35',
             'cor'      =>      'required|max:35',
             'peso'    =>      'required|max:35',
             'descricao'      =>      'required|max:35'
         ]);
 
         Produto::whereId($id)->update($validateData);
-        // redirecionando para o diretório raiz (index)
+       
         return redirect('/produtos')->with('success', 
         'Dados atualizados com sucesso!');
     
@@ -122,9 +121,9 @@ class ProdutoController extends Controller
     {
         //
         $produto = Produto::findOrFail($id);
-        // realizando a exclusão
+       
         $produto->delete();
-        // redirecionando para o diretório raiz (index)
+      
         return redirect('/produtos')->with('success', 
         'Dados removidos com sucesso!');
     
